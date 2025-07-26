@@ -5,11 +5,15 @@ const contactRoute = require('./routes/contact.route');
 const Message = require('./models/Message'); // ou le chemin correct selon ta structure
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(cors({
+  origin: '*', // tu peux mettre aussi 'https://portfolio-frontend-XXXXX.onrender.com'
+  methods: ['GET', 'POST'],
+}));
 
 // Routes
 app.use('/api/contact', contactRoute);
@@ -30,6 +34,11 @@ app.get('/api/stats/messages', async (req, res) => {
       },
       { $sort: { _id: 1 } }
     ]);
+
+    app.get('/api/hello', (req, res) => {
+  res.json({ message: 'Hello from backend!' });
+});
+
 
     res.json({ total, messagesByDay });
   } catch (err) {
