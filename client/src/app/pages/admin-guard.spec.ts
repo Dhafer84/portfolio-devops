@@ -1,17 +1,33 @@
 import { TestBed } from '@angular/core/testing';
-import { CanActivateFn } from '@angular/router';
-
+import { Router } from '@angular/router';
 import { AdminGuard } from './admin-guard';
 
-describe('adminGuard', () => {
-  const executeGuard: CanActivateFn = (...guardParameters) => 
-      TestBed.runInInjectionContext(() => AdminGuard(...guardParameters));
+describe('AdminGuard', () => {
+  let guard: AdminGuard;
+  let routerSpy = { navigate: jasmine.createSpy('navigate') };
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        AdminGuard,
+        { provide: Router, useValue: routerSpy }
+      ]
+    });
+    guard = TestBed.inject(AdminGuard);
   });
 
   it('should be created', () => {
-    expect(executeGuard).toBeTruthy();
+    expect(guard).toBeTruthy();
+  });
+
+  it('should return true if isAdmin is true in localStorage', () => {
+    localStorage.setItem('isAdmin', 'true');
+    expect(guard.canActivate()).toBeTrue();
+  });
+
+  it('should return false and redirect if isAdmin is false', () => {
+    localStorage.setItem('isAdmin', 'false');
+    expect(guard.canActivate()).toBeFalse();
+    expect(routerSpy.navigate).toHaveBeenCalledWith(['/admin']);
   });
 });
