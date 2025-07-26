@@ -1,0 +1,44 @@
+<section class="skills-section">
+  <div class="skills-container">
+    <div class="skills-text">
+      <h2 *ngIf="lang === 'fr'">Mes compétences clés</h2>
+      <h2 *ngIf="lang === 'en'">My Key Skills</h2>
+
+      <ul *ngIf="lang === 'fr'">
+        <li>Infrastructure as Code (Terraform, Ansible)</li>
+        <li>CI/CD avec Jenkins, Azure DevOps</li>
+        <li>Conteneurisation & orchestration : Docker, Kubernetes</li>
+        <li>Cloud : Azure, AWS (base), GCP (base)</li>
+        <li>Sécurité Cloud & gestion des identités</li>
+        <li>Monitoring : Prometheus, Grafana</li>
+        <li>Qualité logicielle</li>
+      </ul>
+
+      <ul *ngIf="lang === 'en'">
+        <li>Infrastructure as Code (Terraform, Ansible)</li>
+        <li>CI/CD with Jenkins, Azure DevOps</li>
+        <li>Containerization & orchestration: Docker, Kubernetes</li>
+        <li>Cloud: Azure, AWS (basic), GCP (basic)</li>
+        <li>Cloud Security & Identity Management</li>
+        <li>Monitoring: Prometheus, Grafana</li>
+        <li>Software Quality</li>
+      </ul>
+
+      <div class="lang-switch">
+        <button (click)="switchLang()">
+          {{ lang === 'fr' ? 'Switch to English' : 'Passer au français' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="logo-circle-container">
+      <div class="rotating-circle">
+        <img *ngFor="let logo of logos; let i = index"
+             [src]="logo.src"
+             [alt]="logo.alt"
+             class="tool-icon"
+             [style.--i]="i" />
+      </div>
+    </div>
+  </div>
+</section>

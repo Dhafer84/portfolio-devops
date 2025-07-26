@@ -1,0 +1,25 @@
+<section class="certifications-section">
+  <div class="lang-switch">
+    <button (click)="switchLang()">
+      {{ lang === 'fr' ? 'Switch to English' : 'Passer au français' }}
+    </button>
+  </div>
+
+  <div class="certifications-content">
+    <h2>{{ lang === 'fr' ? 'Mes certifications' : 'My Certifications' }}</h2>
+    <p>
+      {{ lang === 'fr'
+        ? "Voici une sélection de certifications que j’ai obtenues dans le domaine du cloud, DevOps et de la cybersécurité."
+        : "Here is a selection of certifications I’ve earned in cloud, DevOps, and cybersecurity." }}
+    </p>
+
+    <div class="certification-grid">
+      <div class="certification-card" *ngFor="let cert of certifications">
+        <img [src]="cert.image" [alt]="cert.title" />
+        <h3>{{ cert.title }}</h3>
+        <p>{{ cert.issuer }}</p>
+        <small>{{ lang === 'fr' ? 'Délivré le' : 'Issued' }} {{ cert.date }}</small>
+      </div>
+    </div>
+  </div>
+</section>

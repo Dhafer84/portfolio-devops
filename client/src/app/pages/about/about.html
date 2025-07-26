@@ -1,0 +1,51 @@
+<section class="about-section">
+  <div class="about-content">
+    
+    <!-- Bloc du logo -->
+    <div class="about-photo">
+      <img src="/assets/logo.png" alt="Photo Dhafer Bouthelja" />
+    </div>
+
+    <!-- Bloc texte + bouton -->
+    <div class="about-text">
+      <!-- Texte FR -->
+      <div *ngIf="lang === 'fr'">
+        <h2>À propos de moi</h2>
+        <p>
+          Ingénieur Cloud & DevOps passionné par l'automatisation, la fiabilité et l'innovation.
+          Mon objectif est de transformer les défis techniques en solutions performantes et évolutives.
+        </p>
+        <p>
+          Avec une solide expérience en qualité logicielle, en CI/CD, et en infrastructures Cloud (Azure, Kubernetes, Docker...),
+          je conçois des environnements robustes favorisant l'agilité, la sécurité et la scalabilité.
+        </p>
+        <p class="quote">
+          « Le DevOps, c’est l’art de livrer avec confiance, qualité et rapidité. »
+        </p>
+      </div>
+
+      <!-- Texte EN -->
+      <div *ngIf="lang === 'en'">
+        <h2>About Me</h2>
+        <p>
+          Cloud & DevOps engineer passionate about automation, reliability, and innovation.
+          My goal is to transform technical challenges into high-performance and scalable solutions.
+        </p>
+        <p>
+          With strong experience in software quality, CI/CD, and cloud infrastructures (Azure, Kubernetes, Docker...),
+          I design robust environments that promote agility, security, and scalability.
+        </p>
+        <p class="quote">
+          "DevOps is the art of delivering with confidence, quality, and speed."
+        </p>
+      </div>
+
+      <!-- Bouton de switch -->
+      <div class="lang-switch">
+        <button (click)="switchLang()">
+          {{ lang === 'fr' ? 'Switch to English' : 'Passer au français' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

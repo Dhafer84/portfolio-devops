@@ -1,0 +1,100 @@
+.skills-section {
+  background: linear-gradient(145deg, #0d1b2a, #1b263b);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.skills-text {
+  flex: 1;
+}
+
+.skills-text h2 {
+  font-size: 36px;
+  color: #00d4ff;
+  margin-bottom: 20px;
+}
+
+.skills-text ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+.skills-text li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.logo-circle-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 350px;
+  height: 350px;
+}
+
+.rotating-circle {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: spin 25s linear infinite;
+}
+
+.tool-icon {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: rotate(calc(36deg * var(--i))) translateX(140px) rotate(calc(-36deg * var(--i)));
+  filter: drop-shadow(0 0 10px #00d4ff);
+  transition: transform 0.3s;
+}
+
+.tool-icon:hover {
+  transform: scale(1.2) rotate(calc(36deg * var(--i))) translateX(140px) rotate(calc(-36deg * var(--i)));
+}
+
+.lang-switch {
+  margin-top: 30px;
+}
+
+.lang-switch button {
+  background-color: transparent;
+  border: 1px solid #00d4ff;
+  color: #00d4ff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.lang-switch button:hover {
+  background-color: #00d4ff;
+  color: #0d1b2a;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

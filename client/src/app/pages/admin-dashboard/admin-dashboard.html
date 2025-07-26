@@ -1,0 +1,56 @@
+<div class="dashboard">
+  <h2>📬 Messages reçus</h2>
+  <button (click)="exportCSV()">📥 Exporter CSV</button>
+  <button (click)="logout()">🚪 Se déconnecter</button>
+
+  <div *ngIf="loading">Chargement...</div>
+
+  <table *ngIf="!loading && messages.length">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of messages">
+        <td>{{ m.name }}</td>
+        <td>{{ m.email }}</td>
+        <td>{{ m.message }}</td>
+        <td>{{ m.createdAt | date:'short' }}</td>
+        <td><button (click)="deleteMessage(m._id)">🗑️</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!loading && !messages.length">Aucun message enregistré.</p>
+</div>
+
+<div class="stats">
+  <h3>📊 Statistiques des messages</h3>
+  <p>Total : {{ stats.total }}</p>
+
+  <table>
+    <thead><tr><th>Date</th><th>Messages</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let day of stats.messagesByDay">
+        <td>{{ day._id }}</td>
+        <td>{{ day.count }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Graphique Chart.js -->
+<div class="graph">
+  <h3>📉 Graphique</h3>
+  <canvas baseChart
+    [data]="chartData"
+    [type]="'bar'"
+    [options]="{ responsive: true }">
+  </canvas>
+</div>
+

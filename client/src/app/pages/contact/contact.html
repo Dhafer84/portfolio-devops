@@ -1,0 +1,60 @@
+<section class="contact-section">
+  <div class="lang-switch">
+    <button (click)="switchLang()">
+      {{ lang === 'fr' ? 'Switch to English' : 'Passer au français' }}
+    </button>
+  </div>
+
+  <div class="contact-container">
+    <h2>{{ lang === 'fr' ? 'Me contacter' : 'Contact Me' }}</h2>
+    <p>
+      {{
+        lang === 'fr'
+          ? 'Vous avez une question, un projet ou une opportunité ? Envoyez-moi un message !'
+          : 'Do you have a question, project, or opportunity? Feel free to send me a message!'
+      }}
+    </p>
+
+    <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+      <input
+        type="text"
+        formControlName="name"
+        [placeholder]="lang === 'fr' ? 'Votre nom' : 'Your name'"
+      />
+      <div class="error" *ngIf="submitted && contactForm.controls['name'].invalid">
+        {{ lang === 'fr' ? 'Nom requis' : 'Name is required' }}
+      </div>
+
+      <input
+        type="email"
+        formControlName="email"
+        [placeholder]="lang === 'fr' ? 'Votre email' : 'Your email'"
+      />
+      <div class="error" *ngIf="submitted && contactForm.controls['email'].invalid">
+        {{ lang === 'fr' ? 'Email valide requis' : 'Valid email required' }}
+      </div>
+
+      <textarea
+        rows="5"
+        formControlName="message"
+        [placeholder]="lang === 'fr' ? 'Votre message' : 'Your message'"
+      ></textarea>
+      <div class="error" *ngIf="submitted && contactForm.controls['message'].invalid">
+        {{ lang === 'fr' ? 'Message requis' : 'Message is required' }}
+      </div>
+
+      <button type="submit" [disabled]="loading">
+        <span *ngIf="loading">⏳ {{ lang === 'fr' ? 'Envoi...' : 'Sending...' }}</span>
+        <span *ngIf="!loading">{{ lang === 'fr' ? 'Envoyer' : 'Send Message' }}</span>
+      </button>
+    </form>
+
+    <div class="success" *ngIf="successMessage">
+      ✅ {{ successMessage }}
+    </div>
+
+    <div class="error" *ngIf="errorMessage">
+      ❌ {{ errorMessage }}
+    </div>
+  </div>
+</section>

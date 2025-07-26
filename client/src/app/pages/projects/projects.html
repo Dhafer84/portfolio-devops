@@ -1,0 +1,55 @@
+<section class="projects-section">
+  <div class="lang-switch">
+    <button (click)="switchLang()">
+      {{ lang === 'fr' ? 'Switch to English' : 'Passer au français' }}
+    </button>
+  </div>
+
+  <div class="projects-content">
+    <!-- 🇫🇷 Français -->
+    <div *ngIf="lang === 'fr'">
+      <h2>Mes projets récents</h2>
+      <p>Voici quelques projets que j'ai réalisés, mettant en œuvre mes compétences DevOps, Cloud et qualité logicielle.</p>
+
+      <div class="project-card">
+        <h3>Projet Azure DevOps</h3>
+        <p>
+          Mise en place d’un pipeline CI/CD avec <strong>Docker</strong>, <strong>Kubernetes (AKS)</strong>,
+          <strong>Terraform</strong> et <strong>SonarCloud</strong> dans un environnement Azure.
+        </p>
+        <a href="https://dev.azure.com/DhaferBOUTHELJA/ProjetAzureDevops-DhaferBouthelja" target="_blank">
+          👉 Voir sur Azure DevOps
+        </a>
+      </div>
+
+      <ul>
+        <li><strong>Infrastructure DevOps CI/CD :</strong> Docker, Jenkins, Kubernetes, Prometheus, Grafana.</li>
+        <li><strong>Portfolio dynamique :</strong> Angular + Express, hébergé sur Render avec chatbot Rasa.</li>
+        <li><strong>Test automatique embarqué :</strong> Jenkins + K3s orchestrant des agents Docker sur VMs.</li>
+      </ul>
+    </div>
+
+    <!-- 🇬🇧 English -->
+    <div *ngIf="lang === 'en'">
+      <h2>My recent projects</h2>
+      <p>Here are some projects I’ve worked on, demonstrating my expertise in DevOps, Cloud, and software quality.</p>
+
+      <div class="project-card">
+        <h3>Azure DevOps Project</h3>
+        <p>
+          CI/CD pipeline using <strong>Docker</strong>, <strong>Kubernetes (AKS)</strong>,
+          <strong>Terraform</strong>, and <strong>SonarCloud</strong> in Azure environment.
+        </p>
+        <a href="https://dev.azure.com/DhaferBOUTHELJA/ProjetAzureDevops-DhaferBouthelja" target="_blank">
+          👉 View on Azure DevOps
+        </a>
+      </div>
+
+      <ul>
+        <li><strong>DevOps CI/CD Infrastructure:</strong> Docker, Jenkins, Kubernetes, Prometheus, Grafana.</li>
+        <li><strong>Dynamic Portfolio:</strong> Angular + Express, hosted on Render with Rasa chatbot.</li>
+        <li><strong>Embedded automatic testing:</strong> Jenkins + K3s orchestrating Docker agents on VMs.</li>
+      </ul>
+    </div>
+  </div>
+</section>

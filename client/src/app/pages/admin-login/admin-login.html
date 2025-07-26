@@ -1,0 +1,9 @@
+<div class="login-container">
+  <h2>🔐 Admin Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <input formControlName="username" placeholder="Nom d’utilisateur" required />
+    <input type="password" formControlName="password" placeholder="Mot de passe" required />
+    <button type="submit">Se connecter</button>
+    <p *ngIf="error" class="error-msg">{{ error }}</p>
+  </form>
+</div>
