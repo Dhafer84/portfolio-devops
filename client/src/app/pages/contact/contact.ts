@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -47,7 +48,7 @@ export class ContactComponent {
 
     this.loading = true;
 
-    this.http.post('http://localhost:3000/api/contact', this.contactForm.value).subscribe({
+    this.http.post(`${environment.apiUrl}/contact`, this.contactForm.value).subscribe({
       next: () => {
         this.successMessage =
           this.lang === 'fr'
