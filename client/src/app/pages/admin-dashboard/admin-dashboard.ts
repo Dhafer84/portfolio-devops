@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { NgChartsModule } from 'ng2-charts';
-import { ChartConfiguration, ChartType } from 'chart.js';
 import { ChartOptions } from 'chart.js';
+import { ApiService } from '../services/api.service'; // ✅ nouveau service
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -21,17 +20,17 @@ export class AdminDashboardComponent implements OnInit {
   };
 
   chartData = {
-  labels: [] as string[],
-  datasets: [
-    {
-      label: 'Messages par jour',
-      data: [] as number[],
-      backgroundColor: 'rgba(54, 162, 235, 0.6)',
-      borderColor: 'rgba(54, 162, 235, 1)',
-      borderWidth: 1
-    }
-  ]
-};
+    labels: [] as string[],
+    datasets: [
+      {
+        label: 'Messages par jour',
+        data: [] as number[],
+        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }
+    ]
+  };
 
   chartOptions: ChartOptions<'bar'> = {
     responsive: true,
@@ -41,7 +40,7 @@ export class AdminDashboardComponent implements OnInit {
     }
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private apiService: ApiService) {} // ✅ injection du service
 
   ngOnInit() {
     if (localStorage.getItem('isAdmin') !== 'true') {
@@ -60,7 +59,7 @@ export class AdminDashboardComponent implements OnInit {
 
   getMessages() {
     this.loading = true;
-    this.http.get<any[]>('http://localhost:3000/api/contact').subscribe({
+    this.apiService.getMessages().subscribe({
       next: data => {
         this.messages = data;
         this.loading = false;
@@ -71,28 +70,25 @@ export class AdminDashboardComponent implements OnInit {
 
   deleteMessage(id: string) {
     if (confirm('Confirmer la suppression ?')) {
-      this.http.delete(`http://localhost:3000/api/contact/${id}`).subscribe(() => {
+      this.apiService.deleteMessage(id).subscribe(() => {
         this.messages = this.messages.filter(m => m._id !== id);
       });
     }
   }
-getStats() {
-  this.http.get<any>('http://localhost:3000/api/stats/messages').subscribe({
-    next: data => {
-      this.stats = data;
 
-      // Debug temporaire
-      console.log('📊 Stats reçues :', data);
+  getStats() {
+    this.apiService.getStats().subscribe({
+      next: data => {
+        this.stats = data;
 
-      // ✅ Mise à jour du graphique
-      this.chartData.labels = data.messagesByDay.map((d: any) => d._id);
-      this.chartData.datasets[0].data = data.messagesByDay.map((d: any) => +d.count); // + pour convertir en number
-    },
-    error: err => {
-      console.error('Erreur stats:', err);
-    }
-  });
-}
+        this.chartData.labels = data.messagesByDay.map((d: any) => d._id);
+        this.chartData.datasets[0].data = data.messagesByDay.map((d: any) => +d.count);
+      },
+      error: err => {
+        console.error('Erreur stats:', err);
+      }
+    });
+  }
 
   exportCSV() {
     const rows = this.messages.map(m => ({
