@@ -1,22 +1,18 @@
-import { Component,OnInit,ChangeDetectorRef   } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router'; // <-- Ajout important
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule], // <-- ajoute ça ici
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css']
 })
-//export class NavbarComponent {}
-export class NavbarComponent implements OnInit {
-  isAdmin = false;
-  constructor(private cdr: ChangeDetectorRef) {}
+export class NavbarComponent {
+  menuOpen = false;
+  isAdmin = localStorage.getItem('isAdmin') === 'true';
 
- ngOnInit() {
-  const isAdminFlag = localStorage.getItem('isAdmin');
-  console.log('Admin flag:', isAdminFlag);  // Ajoute cette ligne
-  this.isAdmin = isAdminFlag === 'true';
-}
-
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 }
