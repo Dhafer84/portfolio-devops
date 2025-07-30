@@ -1,7 +1,10 @@
 <nav class="navbar">
   <div class="logo">Portfolio</div>
-  <div class="menu-toggle" (click)="toggleMenu()">☰</div>
-
+  <div class="menu-toggle" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
   <div class="nav-links" [class.open]="menuOpen">
     <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
     <a routerLink="/about" routerLinkActive="active">À propos</a>
@@ -9,6 +12,6 @@
     <a routerLink="/projects" routerLinkActive="active">Projets</a>
     <a routerLink="/certifications" routerLinkActive="active">Certifications</a>
     <a routerLink="/contact" routerLinkActive="active">Contact</a>
-    <a *ngIf="isAdmin" routerLink="/admin-dashboard">🔧 Dashboard</a>
+    <a *ngIf="isAdmin" routerLink="/admin-dashboard">🛠️ Dashboard</a>
   </div>
 </nav>
