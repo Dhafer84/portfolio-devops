@@ -129,3 +129,24 @@
     transform: scale(1.2) rotate(calc(36deg * var(--i))) translateX(110px) rotate(calc(-36deg * var(--i)));
   }
 }
+@media (max-width: 768px) {
+  .certifications-content h2 {
+    font-size: 24px;
+  }
+
+  .certifications-content p {
+    font-size: 16px;
+  }
+
+  .certification-card {
+    padding: 15px;
+  }
+
+  .certification-card img {
+    height: 60px;
+  }
+
+  .lang-switch {
+    text-align: center;
+  }
+}
