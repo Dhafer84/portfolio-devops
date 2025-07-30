@@ -108,6 +108,7 @@
   .skills-container {
     flex-direction: column;
     text-align: center;
+    align-items: center;
   }
 
   .skills-text {
@@ -115,18 +116,26 @@
   }
 
   .logo-circle-container {
-    width: 280px;
-    height: 280px;
+    width: 240px;     /* réduite */
+    height: 240px;
+    margin-top: 20px;
   }
 
   .tool-icon {
-    width: 40px;
-    height: 40px;
-    transform: rotate(calc(36deg * var(--i))) translateX(110px) rotate(calc(-36deg * var(--i)));
+    width: 36px;
+    height: 36px;
+    transform: rotate(calc(36deg * var(--i))) translateX(90px) rotate(calc(-36deg * var(--i)));
   }
 
   .tool-icon:hover {
-    transform: scale(1.2) rotate(calc(36deg * var(--i))) translateX(110px) rotate(calc(-36deg * var(--i)));
+    transform: scale(1.2) rotate(calc(36deg * var(--i))) translateX(90px) rotate(calc(-36deg * var(--i)));
+  }
+
+  .lang-switch {
+    margin-top: 20px;
+    text-align: center;
+    z-index: 5;
+    position: relative;
   }
 }
 @media (max-width: 768px) {
