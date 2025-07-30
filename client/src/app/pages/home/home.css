@@ -19,7 +19,7 @@
 }
 
 .typing-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-right: 2px solid #00bfff;
   white-space: nowrap;
   overflow: hidden;
@@ -289,4 +289,30 @@
   margin-top: 15px;
   font-weight: bold;
   text-align: center;
+}
+@media (max-width: 768px) {
+  .logo-circle-container {
+    width: 260px;
+    height: 260px;
+  }
+
+  .tool-icon {
+    width: 40px;
+    height: 40px;
+    transform: rotate(calc(36deg * var(--i))) translate(110px) rotate(calc(-36deg * var(--i)));
+  }
+}
+@media (max-width: 768px) {
+  .floating-icons {
+    top: auto;
+    bottom: 20px;
+    left: 10px;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .floating-icons .icon {
+    width: 40px;
+    height: 40px;
+  }
 }
