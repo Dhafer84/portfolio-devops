@@ -12,7 +12,14 @@ export class NavbarComponent {
   menuOpen = false;
   isAdmin = localStorage.getItem('isAdmin') === 'true';
 
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
+ toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+}
+
+closeMenuIfMobile() {
+  if (window.innerWidth <= 768) {
+    this.menuOpen = false;
   }
+}
+
 }

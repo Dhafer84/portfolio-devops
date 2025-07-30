@@ -6,12 +6,12 @@
     <span></span>
   </div>
   <div class="nav-links" [class.open]="menuOpen">
-    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
-    <a routerLink="/about" routerLinkActive="active">À propos</a>
-    <a routerLink="/skills" routerLinkActive="active">Compétences</a>
-    <a routerLink="/projects" routerLinkActive="active">Projets</a>
-    <a routerLink="/certifications" routerLinkActive="active">Certifications</a>
-    <a routerLink="/contact" routerLinkActive="active">Contact</a>
-    <a *ngIf="isAdmin" routerLink="/admin-dashboard">🛠️ Dashboard</a>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="toggleMenu()">Accueil</a>
+    <a routerLink="/about" routerLinkActive="active" (click)="toggleMenu()">À propos</a>
+    <a routerLink="/skills" routerLinkActive="active" (click)="toggleMenu()">Compétences</a>
+    <a routerLink="/projects" routerLinkActive="active" (click)="toggleMenu()">Projets</a>
+    <a routerLink="/certifications" routerLinkActive="active" (click)="toggleMenu()">Certifications</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="toggleMenu()">Contact</a>
+    <a *ngIf="isAdmin" routerLink="/admin-dashboard" (click)="toggleMenu()">🛠️ Dashboard</a>
   </div>
 </nav>
