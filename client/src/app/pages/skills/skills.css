@@ -15,14 +15,16 @@
   gap: 50px;
   max-width: 1200px;
   width: 100%;
+  flex-wrap: wrap; /* Pour mobile */
 }
 
 .skills-text {
   flex: 1;
+  min-width: 300px;
 }
 
 .skills-text h2 {
-  font-size: 36px;
+  font-size: 32px;
   color: #00d4ff;
   margin-bottom: 20px;
 }
@@ -46,6 +48,8 @@
   position: relative;
   width: 350px;
   height: 350px;
+  min-width: 300px;
+  margin-top: 30px;
 }
 
 .rotating-circle {
@@ -96,5 +100,32 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* === ✅ Responsive pour écrans < 768px === */
+@media (max-width: 768px) {
+  .skills-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .skills-text {
+    margin-bottom: 20px;
+  }
+
+  .logo-circle-container {
+    width: 280px;
+    height: 280px;
+  }
+
+  .tool-icon {
+    width: 40px;
+    height: 40px;
+    transform: rotate(calc(36deg * var(--i))) translateX(110px) rotate(calc(-36deg * var(--i)));
+  }
+
+  .tool-icon:hover {
+    transform: scale(1.2) rotate(calc(36deg * var(--i))) translateX(110px) rotate(calc(-36deg * var(--i)));
   }
 }
