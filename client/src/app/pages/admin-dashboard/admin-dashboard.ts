@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgChartsModule } from 'ng2-charts';
 import { ChartOptions } from 'chart.js';
-import { ApiService } from '../services/api.service'; // ✅ nouveau service
+import { ApiService } from '../../services/api.service'; // ✅ nouveau service
 
 @Component({
   selector: 'app-admin-dashboard',
