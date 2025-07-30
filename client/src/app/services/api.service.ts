@@ -16,4 +16,15 @@ export class ApiService {
   sendContact(data: { name: string; email: string; message: string }) {
     return this.http.post(`${this.baseUrl}/contact`, data);
   }
+  getMessages(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/contact`);
+  }
+
+  deleteMessage(id: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/contact/${id}`);
+  }
+
+  getStats(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/stats/messages`);
+  }
 }
