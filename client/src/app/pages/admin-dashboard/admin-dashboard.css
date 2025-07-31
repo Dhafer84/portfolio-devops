@@ -1,0 +1,13 @@
+.dashboard {
+  padding: 50px;
+  text-align: center;
+  color: white;
+}
+
+button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
