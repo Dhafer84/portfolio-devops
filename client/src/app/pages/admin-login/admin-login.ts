@@ -36,7 +36,7 @@ export class AdminLoginComponent {
       .subscribe({
         next: (res) => {
           localStorage.setItem('token', res.token);
-          this.router.navigate(['/admin-dashboard']);
+         this.router.navigateByUrl('/admin-dashboard');
         },
         error: () => {
           this.error = 'Identifiants invalides';
