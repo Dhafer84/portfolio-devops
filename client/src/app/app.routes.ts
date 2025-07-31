@@ -26,7 +26,7 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () => import('./pages/contact/contact').then(m => m.ContactComponent)
   },
- { path: 'admin-login', loadComponent: () => import('./pages/admin-login/admin-login').then(m => m.AdminLoginComponent) },
+ { path: 'admin', loadComponent: () => import('./pages/admin-login/admin-login').then(m => m.AdminLoginComponent) },
   { path: 'admin-dashboard', canActivate: [AuthGuard], loadComponent: () => import('./pages/admin-dashboard/admin-dashboard').then(m => m.AdminDashboardComponent) },
 
 
