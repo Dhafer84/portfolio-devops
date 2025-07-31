@@ -1,42 +1,42 @@
-/* Style général de la page */
+/* Applique le fond sombre dégradé à toute la section */
 body, html {
   height: 100%;
   margin: 0;
   padding: 0;
+  background: linear-gradient(145deg, #0d1b2a, #1b263b);
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-/* Conteneur principal centré verticalement */
+/* Conteneur centré verticalement et horizontalement */
 .login-container {
+  min-height: calc(100vh - 120px); /* ajuste selon ton header/footer */
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 100px); /* pour exclure header/footer */
   padding: 20px;
-  background: #1b263b;
-  color: white;
   box-sizing: border-box;
 }
 
-/* Boîte de formulaire */
-.login-box {
-  width: 100%;
-  max-width: 400px;
+/* Boîte du formulaire */
+form {
   background: #1b263b;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 0 15px #00d4ff;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
 }
 
 /* Titre */
-.login-box h2 {
-  text-align: center;
+form h2 {
   margin-bottom: 20px;
   color: #00d4ff;
 }
 
 /* Champs */
-.login-box input {
+input {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
@@ -44,12 +44,10 @@ body, html {
   border-radius: 5px;
   font-size: 16px;
   box-sizing: border-box;
-  background-color: #eaeaea;
-  color: #0d1b2a;
 }
 
 /* Bouton */
-.login-box button {
+button {
   background-color: #00d4ff;
   color: #0d1b2a;
   padding: 12px;
@@ -62,30 +60,32 @@ body, html {
   transition: 0.3s;
 }
 
-.login-box button:hover {
+button:hover {
   background-color: #00bfff;
 }
 
-/* Message d’erreur */
-.login-box .error {
+/* Message d'erreur */
+.error {
   color: #ff4d4d;
   margin-top: 10px;
-  text-align: center;
   font-weight: bold;
 }
 
-/* ✅ Responsive mobile */
+/* Responsive mobile */
 @media (max-width: 768px) {
-  .login-box {
+  .login-container {
+    padding: 40px 20px;
+  }
+
+  form {
     padding: 25px;
   }
 
-  .login-box h2 {
+  form h2 {
     font-size: 22px;
   }
 
-  .login-box input,
-  .login-box button {
+  input, button {
     font-size: 15px;
     padding: 10px;
   }
