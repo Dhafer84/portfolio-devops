@@ -1,36 +1,30 @@
-/* Applique le fond sombre dégradé à toute la section */
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+/* Fond dégradé sur toute la page */
+:host {
+  display: block;
+  min-height: 100vh;
   background: linear-gradient(145deg, #0d1b2a, #1b263b);
   color: white;
-  font-family: Arial, sans-serif;
-}
-
-/* Conteneur centré verticalement et horizontalement */
-.login-container {
-  min-height: calc(100vh - 120px); /* ajuste selon ton header/footer */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  padding: 60px 20px;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Boîte du formulaire */
-form {
+/* Formulaire centré */
+.login-container {
+  width: 100%;
+  max-width: 400px;
   background: #1b263b;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 0 15px #00d4ff;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
+  box-sizing: border-box;
 }
 
 /* Titre */
-form h2 {
+.login-container h2 {
+  text-align: center;
   margin-bottom: 20px;
   color: #00d4ff;
 }
@@ -68,25 +62,27 @@ button:hover {
 .error {
   color: #ff4d4d;
   margin-top: 10px;
+  text-align: center;
   font-weight: bold;
 }
 
 /* Responsive mobile */
 @media (max-width: 768px) {
-  .login-container {
-    padding: 40px 20px;
+  :host {
+    padding: 30px 10px;
   }
 
-  form {
+  .login-container {
     padding: 25px;
   }
 
-  form h2 {
-    font-size: 22px;
-  }
-
-  input, button {
+  input,
+  button {
     font-size: 15px;
     padding: 10px;
+  }
+
+  .login-container h2 {
+    font-size: 22px;
   }
 }
