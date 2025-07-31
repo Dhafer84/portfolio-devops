@@ -22,8 +22,9 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return !!this.getToken();
-  }
+  return !!localStorage.getItem('token');
+}
+
 
   logout() {
     localStorage.removeItem('adminToken');
