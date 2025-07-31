@@ -46,7 +46,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   fetchStats() {
-    this.http.get<{ total: number, messagesByDay: { _id: string, count: number }[] }>('https://portfolio-backend-XXXX.onrender.com/api/stats/messages')
+    this.http.get<{ total: number, messagesByDay: { _id: string, count: number }[] }>('https://portfolio-backend-y0at.onrender.com/api/stats/messages')
       .subscribe({
         next: (data) => {
           this.totalMessages = data.total;
