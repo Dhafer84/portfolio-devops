@@ -32,7 +32,7 @@ export class AdminLoginComponent {
     this.loading = true;
     const credentials = this.loginForm.value;
 
-    this.http.post<{ token: string }>('https://ton-backend.onrender.com/api/admin/login', credentials)
+    this.http.post<{ token: string }>('https://portfolio-backend-y0at.onrender.com/api/auth/login', credentials)
       .subscribe({
         next: (res) => {
           localStorage.setItem('token', res.token);
