@@ -3,8 +3,12 @@
   color: white;
   padding: 60px 20px;
   box-sizing: border-box;
+  min-height: 100vh; /* ✅ Corrige la partie blanche en bas */
+  display: flex;
+  align-items: center;
 }
 
+/* Container principal */
 .about-content {
   display: flex;
   flex-direction: row;
@@ -17,6 +21,7 @@
   flex-wrap: wrap; /* Permet le passage en colonne si nécessaire */
 }
 
+/* Bloc photo */
 .about-photo {
   flex: 1 1 300px;
   display: flex;
@@ -32,6 +37,7 @@
   height: auto;
 }
 
+/* Bloc texte */
 .about-text {
   flex: 1 1 300px;
   text-align: right;
@@ -49,6 +55,7 @@
   margin-bottom: 15px;
 }
 
+/* Citation */
 .quote {
   font-style: italic;
   color: #00d4ff;
@@ -56,6 +63,7 @@
   font-size: 18px;
 }
 
+/* Bouton de langue */
 .lang-switch {
   margin-top: 20px;
   text-align: right;
@@ -79,6 +87,11 @@
 
 /* 🔧 Responsive mobile */
 @media (max-width: 768px) {
+  .about-section {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
   .about-content {
     flex-direction: column;
     text-align: center;
