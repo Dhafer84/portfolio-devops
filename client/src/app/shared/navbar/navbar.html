@@ -12,6 +12,7 @@
     <a routerLink="/projects" routerLinkActive="active" (click)="toggleMenu()">Projets</a>
     <a routerLink="/certifications" routerLinkActive="active" (click)="toggleMenu()">Certifications</a>
     <a routerLink="/contact" routerLinkActive="active" (click)="toggleMenu()">Contact</a>
-    <a *ngIf="isAdmin" routerLink="/admin-dashboard" (click)="toggleMenu()">🛠️ Dashboard</a>
+    <a routerLink="/admin" routerLinkActive="active" (click)="toggleMenu()">🔐 Admin</a>
+    
   </div>
 </nav>
