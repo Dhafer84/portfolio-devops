@@ -1,5 +1,16 @@
-<div class="dashboard">
-  <h2>Admin Dashboard</h2>
-  <p>Bienvenue dans l’espace d’administration.</p>
-  <button (click)="logout()">Déconnexion</button>
+<div class="dashboard-container">
+  <h2>📊 Tableau de Bord Administrateur</h2>
+
+  <div class="stats">
+    <div class="stat-box">
+      <h3>Total messages</h3>
+      <p>{{ totalMessages }}</p>
+    </div>
+  </div>
+
+  <div class="chart-section">
+    <canvas id="messagesChart"></canvas>
+  </div>
+
+  <button class="logout-btn" (click)="logout()">Déconnexion</button>
 </div>
