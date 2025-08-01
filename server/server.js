@@ -68,6 +68,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const JWT_SECRET = 'jwt_secret_key_portfolio_2024'; // change-le pour + sécurisé
+require('dotenv').config();
 
 // Middleware
 app.use(express.json());
