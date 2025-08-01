@@ -27,4 +27,12 @@ export class ApiService {
   getStats(): Observable<any> {
     return this.http.get(`${this.baseUrl}/stats/messages`);
   }
+  getLikeCount() {
+  return this.http.get<{ count: number }>('https://portfolio-backend-y0at.onrender.com/api/like');
+}
+
+incrementLike() {
+  return this.http.post<{ count: number }>('https://portfolio-backend-y0at.onrender.com/api/like', {});
+}
+
 }
