@@ -70,7 +70,6 @@ const PORT = process.env.PORT || 3000;
 const JWT_SECRET = 'jwt_secret_key_portfolio_2024'; // change-le pour + sécurisé
 require('dotenv').config();
 const likeRoute = require('./routes/like.route');
-app.use('/api/like', likeRoute);
 
 // Middleware
 app.use(express.json());
@@ -90,7 +89,7 @@ mongoose.connect(MONGO_URI)
 
 // Routes
 app.use('/api/contact', contactRoute);
-
+app.use('/api/like', likeRoute);
 // ✔️ Route hello test
 app.get('/api/hello', (req, res) => {
   res.json({ message: 'Hello from backend!' });
