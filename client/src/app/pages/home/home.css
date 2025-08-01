@@ -316,3 +316,24 @@
     height: 40px;
   }
 }
+.like-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.like-button {
+  background: linear-gradient(90deg, #00d4ff, #1b263b);
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00d4ff;
+  transition: 0.3s;
+}
+
+.like-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #1b263b, #00d4ff);
+}

@@ -33,6 +33,7 @@ import { Router } from '@angular/router';
 })
 export class AdminDashboardComponent implements OnInit {
   totalMessages = 0;
+likeCount = 0;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -43,6 +44,9 @@ export class AdminDashboardComponent implements OnInit {
     }
 
     this.fetchStats();
+    this.http.get<{ count: number }>('https://portfolio-backend-y0at.onrender.com/api/like')
+  .subscribe(res => this.likeCount = res.count);
+
   }
 
   fetchStats() {
