@@ -61,18 +61,18 @@ export class HomeComponent implements OnInit {
     });
 
     // 🔄 Charger le compteur de likes
-    this.http.get<{ count: number }>('https://portfolio-backend-y0at.onrender.com/api/like')
-      .subscribe({
-        next: (res) => this.likeCount = res.count,
-        error: (err) => console.error('Erreur like:', err)
-      });
-  }
+    this.api.getLikeCount().subscribe({
+    next: (res) => this.likeCount = res.count,
+    error: (err) => console.error('Erreur like:', err)
+  });
+}
+  
 
   like(): void {
-    this.http.post<{ count: number }>('https://portfolio-backend-y0at.onrender.com/api/like', {})
-      .subscribe({
-        next: (res) => this.likeCount = res.count,
-        error: (err) => console.error('Erreur ajout like:', err)
-      });
-  }
+  this.api.incrementLike().subscribe({
+    next: (res) => this.likeCount = res.count,
+    error: (err) => console.error('Erreur ajout like:', err)
+  });
+}
+
 }
