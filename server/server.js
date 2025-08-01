@@ -128,3 +128,33 @@ app.post('/api/auth/login', (req, res) => {
     res.status(401).json({ error: 'Identifiants invalides' });
   }
 });
+// 🔼 GET current like count
+app.get('/api/like', async (req, res) => {
+  try {
+    let like = await Like.findOne();
+    if (!like) {
+      like = await Like.create({ count: 0 });
+    }
+    res.json({ count: like.count });
+  } catch (err) {
+    console.error('Erreur récupération like:', err);
+    res.status(500).json({ error: 'Erreur serveur' });
+  }
+});
+
+// 🔼 POST pour incrémenter le compteur
+app.post('/api/like', async (req, res) => {
+  try {
+    let like = await Like.findOne();
+    if (!like) {
+      like = await Like.create({ count: 1 });
+    } else {
+      like.count += 1;
+      await like.save();
+    }
+    res.json({ count: like.count });
+  } catch (err) {
+    console.error('Erreur incrementation like:', err);
+    res.status(500).json({ error: 'Erreur serveur' });
+  }
+});
