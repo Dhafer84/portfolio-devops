@@ -1,44 +1,105 @@
 <section class="skills-section">
   <div class="skills-container">
     <div class="skills-text">
-      <h2 *ngIf="lang === 'fr'">Mes compétences clés</h2>
-      <h2 *ngIf="lang === 'en'">My Key Skills</h2>
+  <h2 *ngIf="lang === 'fr'">Mes compétences clés</h2>
+  <h2 *ngIf="lang === 'en'">My Key Skills</h2>
 
-      <ul *ngIf="lang === 'fr'">
-        <li>Infrastructure as Code (Terraform, Ansible)</li>
-        <li>CI/CD avec Jenkins, Azure DevOps</li>
-        <li>Conteneurisation & orchestration : Docker, Kubernetes</li>
-        <li>Cloud : Azure, AWS (base), GCP (base)</li>
-        <li>Sécurité Cloud & gestion des identités</li>
-        <li>Monitoring : Prometheus, Grafana</li>
-        <li>Qualité logicielle</li>
-      </ul>
+  <!-- Tableau FR -->
+  <div *ngIf="lang === 'fr'" class="skills-table">
+    <table>
+      <thead>
+        <tr>
+          <th>DevOps & Cloud</th>
+          <th>QA & Logiciel embarqué</th>
+          <th>Qualité industrielle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Docker, Docker Compose</td>
+          <td>SQALE, MISRA, LDRA, Coverity</td>
+          <td>TRS, QRQC, 5S</td>
+        </tr>
+        <tr>
+          <td>Kubernetes (K3s, AKS)</td>
+          <td>Revue de code, tests unitaires</td>
+          <td>ISO 9001, IATF 16949</td>
+        </tr>
+        <tr>
+          <td>Jenkins, GitHub Actions</td>
+          <td>SonarQube, Git</td>
+          <td>Analyse des rebuts, SPC</td>
+        </tr>
+        <tr>
+          <td>Terraform, Ansible</td>
+          <td>Scripts Bash, YAML</td>
+          <td>Contrôle qualité en production</td>
+        </tr>
+        <tr>
+          <td>Azure DevOps, Pipelines</td>
+          <td>Python (automatisation test)</td>
+          <td>Formation IPC-A610</td>
+        </tr>
+        <tr>
+          <td>AWS, Azure (bases)</td>
+          <td>CI/CD systèmes embarqués</td>
+          <td>Encadrement, audits internes</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-      <ul *ngIf="lang === 'en'">
-        <li>Infrastructure as Code (Terraform, Ansible)</li>
-        <li>CI/CD with Jenkins, Azure DevOps</li>
-        <li>Containerization & orchestration: Docker, Kubernetes</li>
-        <li>Cloud: Azure, AWS (basic), GCP (basic)</li>
-        <li>Cloud Security & Identity Management</li>
-        <li>Monitoring: Prometheus, Grafana</li>
-        <li>Software Quality</li>
-      </ul>
+  <!-- Tableau EN -->
+  <div *ngIf="lang === 'en'" class="skills-table">
+    <table>
+      <thead>
+        <tr>
+          <th>DevOps & Cloud</th>
+          <th>Embedded Software QA</th>
+          <th>Industrial Quality</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Docker, Docker Compose</td>
+          <td>SQALE, MISRA, LDRA, Coverity</td>
+          <td>TRS, QRQC, 5S</td>
+        </tr>
+        <tr>
+          <td>Kubernetes (K3s, AKS)</td>
+          <td>Code review, unit testing</td>
+          <td>ISO 9001, IATF 16949</td>
+        </tr>
+        <tr>
+          <td>Jenkins, GitHub Actions</td>
+          <td>SonarQube, Git</td>
+          <td>Scrap analysis, SPC</td>
+        </tr>
+        <tr>
+          <td>Terraform, Ansible</td>
+          <td>Bash & YAML scripting</td>
+          <td>Production quality control</td>
+        </tr>
+        <tr>
+          <td>Azure DevOps, Pipelines</td>
+          <td>Python (test automation)</td>
+          <td>IPC-A610 Training</td>
+        </tr>
+        <tr>
+          <td>AWS, Azure (basics)</td>
+          <td>Embedded CI/CD pipelines</td>
+          <td>Coaching, internal audits</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-      <div class="lang-switch">
-        <button (click)="switchLang()">
-          {{ lang === 'fr' ? 'Switch to English' : 'Passer au français' }}
-        </button>
-      </div>
-    </div>
+  <div class="lang-switch">
+    <button (click)="switchLang()">
+      {{ lang === 'fr' ? 'Switch to English' : 'Passer au français' }}
+    </button>
+  </div>
+</div>
 
-    <div class="logo-circle-container">
-      <div class="rotating-circle">
-        <img *ngFor="let logo of logos; let i = index"
-             [src]="logo.src"
-             [alt]="logo.alt"
-             class="tool-icon"
-             [style.--i]="i" />
-      </div>
-    </div>
   </div>
 </section>
