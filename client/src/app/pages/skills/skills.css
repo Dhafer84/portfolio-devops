@@ -200,3 +200,39 @@
     flex-direction: column;
   }
 }
+/* === CARROUSEL BLOC DE COMPÉTENCES === */
+.skills-block {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.skill-row {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  scroll-snap-align: start;
+}
+
+.skill-block {
+  flex: 0 0 300px;
+  min-width: 250px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: left;
+}
+
+/* Hide scrollbar */
+.skills-block::-webkit-scrollbar {
+  display: none;
+}
+.skills-block {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
