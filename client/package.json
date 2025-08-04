@@ -4,9 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path=dist && cpy _redirects dist/browser",
+    "build": "ng build --output-path=dist",
     "watch": "ng build --watch --configuration development",
-    "postbuild": "cp static.json dist/browser",
     "test": "ng test"
   },
   "prettier": {
