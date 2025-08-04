@@ -77,3 +77,47 @@ button:disabled {
     opacity: 0;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.floating-icons {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 999;
+}
+
+.floating-icons .icon {
+  width: 48px;
+  height: 48px;
+  background-color: #00d4ff;
+  color: #0d1b2a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-icons .icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+}
+
+.floating-icons .icon i {
+  font-size: 20px;
+}
