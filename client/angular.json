@@ -27,10 +27,10 @@
               "src/assets",
               "src/favicon.ico",
               {
-    "glob": "_redirects",
-    "input": "src/redirects",
-    "output": ""
-  } 
+                "glob": "_redirects",
+                "input": "src/redirects",
+                "output": ""
+              } 
             ],
           
             "styles": [
