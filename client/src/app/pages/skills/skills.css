@@ -1,4 +1,3 @@
-
 /* === SECTION COMPÉTENCES === */
 .skills-section {
   background: linear-gradient(145deg, #0d1b2a, #1b263b) !important;
@@ -42,41 +41,7 @@
   margin-bottom: 10px;
 }
 
-.logo-circle-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 350px;
-  height: 350px;
-  min-width: 300px;
-  margin-top: 30px;
-  z-index: 1;
-}
-
-.rotating-circle {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  animation: spin 25s linear infinite;
-}
-
-.tool-icon {
-  width: 48px;
-  height: 48px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: rotate(calc(36deg * var(--i))) translateX(140px) rotate(calc(-36deg * var(--i)));
-  filter: drop-shadow(0 0 10px #00d4ff);
-  transition: transform 0.3s;
-}
-
-.tool-icon:hover {
-  transform: scale(1.2) rotate(calc(36deg * var(--i))) translateX(140px) rotate(calc(-36deg * var(--i)));
-}
-
+/* === Langue switch === */
 .lang-switch {
   margin-top: 30px;
   z-index: 2;
@@ -100,16 +65,24 @@
   color: #0d1b2a;
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* === TABLEAU COMPÉTENCES === */
+.skills-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 16px;
+  background-color: transparent;
+  color: white;
 }
 
-/* === ✅ Responsive pour écrans < 768px === */
+.skills-table td {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* === Responsive pour mobile < 768px === */
 @media (max-width: 768px) {
   .skills-container {
     flex-direction: column;
@@ -126,137 +99,14 @@
     line-height: 1.4;
   }
 
-  .logo-circle-container {
-    width: 240px;
-    height: 240px;
-    margin-top: 20px;
-  }
-
-  .tool-icon {
-    width: 36px;
-    height: 36px;
-    transform: rotate(calc(36deg * var(--i))) translateX(90px) rotate(calc(-36deg * var(--i)));
-  }
-
-  .tool-icon:hover {
-    transform: scale(1.2) rotate(calc(36deg * var(--i))) translateX(90px) rotate(calc(-36deg * var(--i)));
-  }
-
   .lang-switch {
     margin-top: 20px;
     text-align: center;
     z-index: 5;
     position: relative;
   }
-}
 
-/* === Responsive pour section certifications, si incluse === */
-@media (max-width: 768px) {
-  .certifications-content h2 {
-    font-size: 24px;
-  }
-
-  .certifications-content p {
-    font-size: 16px;
-  }
-
-  .certification-card {
-    padding: 15px;
-  }
-
-  .certification-card img {
-    height: 60px;
-  }
-
-  .lang-switch {
-    text-align: center;
-  }
-}
-.skills-table table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  font-size: 16px;
-  background-color: transparent;
-  color: white;
-}
-
-.skills-table th,
-.skills-table td {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 12px 16px;
-  text-align: left;
-  vertical-align: top;
-}
-
-.skills-table th {
-  background-color: rgba(0, 212, 255, 0.2);
-  color: #00d4ff;
-  font-size: 18px;
-}
-
-/* ✅ Responsive tableau mobile */
-@media (max-width: 768px) {
-  .skills-table table,
-  .skills-table thead,
-  .skills-table tbody,
-  .skills-table th,
-  .skills-table td,
-  .skills-table tr {
-    display: block;
-    width: 100%;
-  }
-
-  .skills-table thead {
-    display: none;
-  }
-
-  .skills-table td {
-    position: relative;
-    padding-left: 50%;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .skills-table td::before {
-    position: absolute;
-    top: 12px;
-    left: 16px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
-    font-weight: bold;
-    color: #00d4ff;
-  }
-
-  /* Libellés en FR */
-  [lang='fr'] .skills-table td:nth-of-type(1)::before { content: "DevOps & Cloud"; }
-  [lang='fr'] .skills-table td:nth-of-type(2)::before { content: "QA & Logiciel embarqué"; }
-  [lang='fr'] .skills-table td:nth-of-type(3)::before { content: "Qualité industrielle"; }
-
-  /* Libellés en EN */
-  [lang='en'] .skills-table td:nth-of-type(1)::before { content: "DevOps & Cloud"; }
-  [lang='en'] .skills-table td:nth-of-type(2)::before { content: "Embedded Software QA"; }
-  [lang='en'] .skills-table td:nth-of-type(3)::before { content: "Industrial Quality"; }
-}
-.skills-table table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  font-size: 16px;
-  background-color: transparent;
-  color: white;
-}
-
-.skills-table td {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 12px 16px;
-  text-align: left;
-  vertical-align: top;
-}
-
-/* ✅ Responsive pour mobile */
-@media (max-width: 768px) {
+  /* === Responsive tableau compétences === */
   .skills-table table,
   .skills-table tbody,
   .skills-table tr,
@@ -284,24 +134,28 @@
     color: #00d4ff;
   }
 
-  /* 🏷️ Libellés dynamiques FR */
+  /* Libellés dynamiques FR */
   .skills-table td.col-1::before {
     content: "DevOps & Cloud";
   }
+
   .skills-table td.col-2::before {
     content: "QA & Logiciel embarqué";
   }
+
   .skills-table td.col-3::before {
     content: "Qualité industrielle";
   }
 
-  /* 🏷️ Libellés dynamiques EN */
+  /* Libellés dynamiques EN */
   [lang='en'] .skills-table td.col-1::before {
     content: "DevOps & Cloud";
   }
+
   [lang='en'] .skills-table td.col-2::before {
     content: "Embedded Software QA";
   }
+
   [lang='en'] .skills-table td.col-3::before {
     content: "Industrial Quality";
   }
