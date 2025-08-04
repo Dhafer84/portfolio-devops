@@ -2,5 +2,8 @@
   "dependencies": {
     "chart.js": "^4.5.0",
     "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "cpy-cli": "^5.0.0"
   }
 }
