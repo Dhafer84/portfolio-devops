@@ -4,80 +4,40 @@
       <h2 *ngIf="lang === 'fr'">Mes compétences clés</h2>
       <h2 *ngIf="lang === 'en'">My Key Skills</h2>
 
-      <!-- Tableau FR -->
-      <div *ngIf="lang === 'fr'" class="skills-table">
-        <table>
-          <tbody>
-            <tr>
-              <td class="col-1">Docker, Docker Compose</td>
-              <td class="col-2">MISRA, LDRA, Coverity</td>
-              <td class="col-3">TRS, QRQC, 5S, 8D, 5M...</td>
-            </tr>
-            <tr>
-              <td class="col-1">Kubernetes (K3s, AKS)</td>
-              <td class="col-2">Revue de code, tests unitaires</td>
-              <td class="col-3">ISO 9001, IATF 16949, ISO26262, ASPICE</td>
-            </tr>
-            <tr>
-              <td class="col-1">Jenkins, GitHub Actions, GitLab CI</td>
-              <td class="col-2">SonarQube, Git</td>
-              <td class="col-3">Gestion Projets, SLA, SPC</td>
-            </tr>
-            <tr>
-              <td class="col-1">Terraform, Ansible</td>
-              <td class="col-2">Scripts Bash, YAML</td>
-              <td class="col-3">Technique de Fabrication PCBA: CMS, Brasage...</td>
-            </tr>
-            <tr>
-              <td class="col-1">Azure DevOps, Pipelines</td>
-              <td class="col-2">Python (automatisation test)</td>
-              <td class="col-3">Formateur certifié CIT en IPC-A610</td>
-            </tr>
-            <tr>
-              <td class="col-1">AWS, Azure (bases)</td>
-              <td class="col-2">CI/CD systèmes embarqués</td>
-              <td class="col-3">Encadrement, audits internes</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Bloc FR -->
+      <div *ngIf="lang === 'fr'" class="skills-block">
+        <div class="skill-row" *ngFor="let row of skillsFr">
+          <div class="skill-block">
+            <strong>DevOps & Cloud</strong>
+            <p>{{ row.devops }}</p>
+          </div>
+          <div class="skill-block">
+            <strong>QA & Logiciel embarqué</strong>
+            <p>{{ row.qa }}</p>
+          </div>
+          <div class="skill-block">
+            <strong>Qualité industrielle</strong>
+            <p>{{ row.qualite }}</p>
+          </div>
+        </div>
       </div>
 
-      <!-- Tableau EN -->
-      <div *ngIf="lang === 'en'" class="skills-table">
-        <table>
-          <tbody>
-            <tr>
-              <td class="col-1">Docker, Docker Compose</td>
-              <td class="col-2">MISRA, LDRA, Coverity</td>
-              <td class="col-3">TRS, QRQC, 5S, 8D, 5M...</td>
-            </tr>
-            <tr>
-              <td class="col-1">Kubernetes (K3s, AKS)</td>
-              <td class="col-2">Code review, unit testing</td>
-              <td class="col-3">ISO 9001, IATF 16949, ISO26262, ASPICE</td>
-            </tr>
-            <tr>
-              <td class="col-1">Jenkins, GitHub Actions, GitLab CI</td>
-              <td class="col-2">SonarQube, Git</td>
-              <td class="col-3">Project Management, SLA, SPC</td>
-            </tr>
-            <tr>
-              <td class="col-1">Terraform, Ansible</td>
-              <td class="col-2">Bash & YAML scripting</td>
-              <td class="col-3">PCBA Manufacturing Techniques: SMT, Brazing...</td>
-            </tr>
-            <tr>
-              <td class="col-1">Azure DevOps, Pipelines</td>
-              <td class="col-2">Python (test automation)</td>
-              <td class="col-3">CIT-certified trainer in IPC-A610</td>
-            </tr>
-            <tr>
-              <td class="col-1">AWS, Azure (basics)</td>
-              <td class="col-2">Embedded CI/CD pipelines</td>
-              <td class="col-3">Coaching, internal audits</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Bloc EN -->
+      <div *ngIf="lang === 'en'" class="skills-block">
+        <div class="skill-row" *ngFor="let row of skillsEn">
+          <div class="skill-block">
+            <strong>DevOps & Cloud</strong>
+            <p>{{ row.devops }}</p>
+          </div>
+          <div class="skill-block">
+            <strong>Embedded Software QA</strong>
+            <p>{{ row.qa }}</p>
+          </div>
+          <div class="skill-block">
+            <strong>Industrial Quality</strong>
+            <p>{{ row.qualite }}</p>
+          </div>
+        </div>
       </div>
 
       <div class="lang-switch">
